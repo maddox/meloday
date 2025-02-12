@@ -5,8 +5,9 @@ from datetime import datetime, timedelta
 from plexapi.server import PlexServer
 
 # --- PLEX SERVER CONFIGURATION ---
-PLEX_URL = 'http://127.0.0.1:32400'  
-PLEX_TOKEN = 'YOUR_PLEX_TOKEN'  
+
+PLEX_URL = os.getenv('PLEX_SERVER_URL')  
+PLEX_TOKEN = os.getenv('PLEX_AUTH_TOKEN')
 plex = PlexServer(PLEX_URL, PLEX_TOKEN, timeout=60)
 MUSIC_LIBRARY = 'Music'
 COVER_IMAGE_DIR = r"YOUR_COVER_DIR" 
@@ -23,7 +24,7 @@ except ImportError:
 
 # --- OPENAI API CONFIGURATION ---
 if USE_AI_ENHANCEMENTS:
-    openai.api_key = ""  # Replace with your OpenAI API Key, leave blank if not using AI
+    openai.api_key = os.getenv('OPENAI_API_KEY')  # Replace with your OpenAI API Key, leave blank if not using AI
 
 # --- PLAYLIST CONFIGURATION ---
 BASE_PLAYLIST_NAME = "Meloday"
