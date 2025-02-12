@@ -9,8 +9,8 @@ from plexapi.server import PlexServer
 PLEX_URL = os.getenv('PLEX_SERVER_URL')  
 PLEX_TOKEN = os.getenv('PLEX_AUTH_TOKEN')
 plex = PlexServer(PLEX_URL, PLEX_TOKEN, timeout=60)
-MUSIC_LIBRARY = 'Music'
-COVER_IMAGE_DIR = r"YOUR_COVER_DIR" 
+MUSIC_LIBRARY = os.getenv('PLEX_MUSIC_LIBRARY')
+COVER_IMAGE_DIR = '/app/covers'
 
 # --- AI ENHANCEMENT TOGGLE ---
 USE_AI_ENHANCEMENTS = False  # Set to False to disable AI
