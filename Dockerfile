@@ -12,7 +12,7 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy application files
-COPY meloday.py requirements.txt /app/
+COPY meloday-v2.py requirements.txt /app/
 COPY covers/ /app/covers/
 
 # Install dependencies
@@ -31,4 +31,4 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD python -c "import sys, os; sys.exit(0 if all([os.getenv('PLEX_SERVER_URL'), os.getenv('PLEX_AUTH_TOKEN'), os.getenv('OPENAI_API_KEY')]) else 1)"
 
 # Run the script
-CMD ["python", "meloday.py"]
+CMD ["python", "meloday-v2.py"]
