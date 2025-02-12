@@ -136,7 +136,7 @@ def enhance_with_ai(title, description, added_styles, selected_genre, selected_m
 # --- STEP 1: FETCH LISTENING HISTORY ---
 def fetch_recent_tracks():
     """Fetch the user's historical listening data from Plex."""
-    music_section = plex.library.section('Music')
+    music_section = plex.library.section(MUSIC_LIBRARY)
     history_entries = music_section.history(mindate=datetime.now() - timedelta(days=HISTORY_LOOKBACK_DAYS))
 
     tracks_by_period = {period: [] for period in time_periods}
